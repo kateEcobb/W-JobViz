@@ -2,7 +2,7 @@ var keyMirror = require('keyMirror');
 
 module.exports = { 
   ActionTypes: keyMirror({ 
-    USER_LOGIN: null, 
+    AUTHENTICATED: null, 
     JOBS_LOADED: null
   }), 
 

@@ -5,9 +5,7 @@ var ActionTypes = require('../constants/Constants').ActionTypes;
 
 var CHANGE_EVENT = 'change';
 
-var jobs = { 
-  
-};
+var jobs = {};
 
 var JobStore = assign({}, EventEmitter.prototype, { 
   emitChange: function(){ 
@@ -20,7 +18,7 @@ var JobStore = assign({}, EventEmitter.prototype, {
     this.removeListener(CHANGE_EVENT, callback);
   },
   setJobs: function(data){
-   
+    jobs = data.job_requests;
   },
   getJobs: function(){ 
     return jobs;

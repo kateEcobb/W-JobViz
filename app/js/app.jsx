@@ -10,30 +10,53 @@ var ActionTypes = require('./constants/Constants');
 var Dispatcher = require('./dispatcher/Dispatcher');
 
 //Stores ======
-var UserStore = require('./stores/UserStore');
+var TokenStore = require('./stores/TokenStore');
 var JobStore = require('./stores/JobStore');
 
 var App = React.createClass({ 
   getInitialState: function(){ 
     return { 
-      places: null
+      places: null, 
+      token: null, 
+      loading: true
     }
   },
 
   componentWillMount: function(){ 
+    ViewActions.getToken();
+    TokenStore.addChangeListener(this.setToken);
+    JobStore.addChangeListener(this.setJobs);
+  },
 
+  setToken: function(){ 
+    this.setState({token: TokenStore.getToken()})
+    ViewActions.getAllJobs(this.state.token);
+  },
+
+  setJobs: function(){ 
+    this.setState({places: JobStore.getJobs()});
+    this.setState({loading: false});
   },
 
   componentWillUnMount: function(){ 
-
+    TokenStore.removeChangeListener(this.setToken);
+    JobStore.removeChangeListener(this.setJobs);
   },
 
   render: function(){ 
-    return (
-    <div id='container'>
-      <MapView/>
-    </div>
+    if(this.state.loading){ 
+      return ( 
+        <div className="spinner-container">
+          <div className="spinner-loader">Loading…</div>
+        </div>
+        )
+    } else {
+     return (
+      <div id='container'>
+        <MapView places={this.state.places}/>
+      </div>
     );
+  }
   }
 });
 

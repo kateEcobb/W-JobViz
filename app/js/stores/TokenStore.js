@@ -5,11 +5,9 @@ var ActionTypes = require('../constants/Constants').ActionTypes;
 
 var CHANGE_EVENT = 'change';
 
-var user = {
-  token: null
-};
+var token = null;
 
-var UserStore = assign({}, EventEmitter.prototype, { 
+var TokenStore = assign({}, EventEmitter.prototype, { 
   emitChange: function(){ 
     this.emit(CHANGE_EVENT);
   },
@@ -19,20 +17,20 @@ var UserStore = assign({}, EventEmitter.prototype, {
   removeChangeListener: function (callback) {
     this.removeListener(CHANGE_EVENT, callback);
   },
-  setToken: function(user_data){ 
-    user.token = user_data.token;
+  setToken: function(data){ 
+    token = data.token;
   }, 
-  getUser: function(){ 
-    return user;
+  getToken: function(){ 
+    return token;
   }, 
 });
 
-UserStore.dispatchToken = Dispatcher.register(function (dispatch) {
+TokenStore.dispatchToken = Dispatcher.register(function (dispatch) {
   var action = dispatch.action;
   if (action.type === ActionTypes.AUTHENTICATED) {
-    UserStore.setUser(action.payload);
-    UserStore.emitChange();
+    TokenStore.setToken(action.payload);
+    TokenStore.emitChange();
   }
 });
 
-module.exports = UserStore;
+module.exports = TokenStore;
