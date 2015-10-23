@@ -48,6 +48,11 @@ module.exports = function(grunt) {
           {expand: true, flatten: true, src: './app/assets/*.jpg', dest: './build/images'}, 
           {expand: true, flatten: true, src: './app/assets/*.png', dest: './build/images'}
         ]
+      }, 
+      js: { 
+        files: [ 
+          {expand: true, flatten: true, src: './app/js/scrollingPlugin.js', dest: './build'}
+        ]
       }
     },
 

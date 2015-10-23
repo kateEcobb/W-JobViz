@@ -37,6 +37,7 @@
     "react": "^0.14.0",
     "react-dom": "^0.14.0",
     "react-leaflet": "^0.8.1",
+    "react-scroll": "^0.30.0",
     "react-tap-event-plugin": "^0.1.8",
     "react-tools": "^0.13.3",
     "request": "^2.64.0",

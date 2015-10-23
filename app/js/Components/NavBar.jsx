@@ -1,5 +1,10 @@
 var React = require('react');
 
+//For responsive scrolling
+var Scroll = require('react-scroll');
+var Link = Scroll.Link;
+var Element = Scroll.Element;
+
 var NavBar = React.createClass({ 
   render: function(){ 
     return ( 
@@ -12,7 +17,7 @@ var NavBar = React.createClass({
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                 </button>
-                <a className="navbar-brand page-scroll" href="#page-top">Wonolo</a>
+                <Link to="Home" spy={true} smooth={true} duration={500} className="navbar-brand page-scroll">Wonolo</Link>
             </div>
 
             <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -21,7 +26,7 @@ var NavBar = React.createClass({
                         <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a className="page-scroll" href="#map">Available Jobs</a>
+                        <Link to="map" spy={true} smooth={true} duration={500} className="page-scroll">Available Jobs</Link>
                     </li>
                 </ul>
             </div>

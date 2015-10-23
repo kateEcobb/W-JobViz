@@ -1,6 +1,11 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+//For responsive scrolling
+var Scroll = require('react-scroll');
+var Link = Scroll.Link;
+var Element = Scroll.Element;
+
 //Components =========
 var MapView = require('./Components/mapView.jsx');
 var NavBar = require('./Components/NavBar.jsx');
@@ -20,7 +25,7 @@ var App = React.createClass({
       places: null, 
       token: null, 
       loading: true
-    }
+    };
   },
 
   componentWillMount: function(){ 
@@ -50,27 +55,28 @@ var App = React.createClass({
         <div className="spinner-container">
           <div className="spinner-loader">Loading…</div>
         </div>
-        )
+        );
     } else {
      return (
       <div id='appcontainer'>
         <NavBar/>
         <header>
-        <div className="container">
+        <Element name='Home' className="container">
             <div className="intro-text">
                 <div className="intro-lead-in">Spend Your Time Better.</div>
                 <div className="intro-heading">Work. Now. Locally.</div>
-                <a href="#map" className="page-scroll btn btn-xl">See Jobs</a>
+                <Link to="map" spy={true} smooth={true} duration={500} className="page-scroll btn btn-xl">See Jobs</Link>
             </div>
-          </div>
+          </Element>
         </header>
         <section id="services">
         <div className="container">
             <div className="row">
-                <div className="col-lg-12 text-center">
+                <Element name='map' className="col-lg-12 text-center">
                     <h2 className="section-heading">Local Jobs</h2>
+                    <h3 className="section-subheading text-muted">There are {this.state.places.length} jobs near you.</h3>
                     <MapView places={this.state.places}/>
-                </div> 
+                </Element> 
             </div> 
         </div> 
         </section>

@@ -19,7 +19,6 @@ var requests = {
     return GetReq('/api/auth');
   }, 
   getJobs: function(token){ 
-    console.log('token in utils', token)
     return GetReq('/api/jobs?token=' + token);
   }
 };

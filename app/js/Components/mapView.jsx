@@ -8,10 +8,14 @@ var Popup = require('react-leaflet/lib/Popup');
 
 //Marker Styling
 var AwesomeMarkers = require('../leaflet.awesome-markers');
-var mapID = 'kateecobb.cig42pnzi2awuszkvrcdrke8j'
-var AccessToken = 'pk.eyJ1Ijoia2F0ZWVjb2JiIiwiYSI6ImNpZzQycHA1dzJhZjh1amx2YnM5YWJvdTYifQ.0-BucncJLGbexpv7_nr97g'
+
+//Tokens for Leaflet Styling
+var mapID = require('../../../.tokens.js').mapID;
+var AccessToken = require('../../../.tokens.js').AccessToken;
+
 var MapView = React.createClass({ 
   getInitialState: function(){ 
+    //setting the default properties for the markers
     return { 
       icon: L.AwesomeMarkers.icon({
         markerColor: 'orange', 
@@ -19,14 +23,13 @@ var MapView = React.createClass({
       }), 
       center: [37.792359,-122.404686], 
       zoom: 13
-    }
+    };
   },
 
   render: function(){ 
     var context = this;
-    console.log(this.props.places)
     var places = this.props.places.map(function(place){ 
-      //if valid location
+      //if valid location, render a marker with information on each job
       if(place.latitude && place.longitude){
       return ( 
         <Marker position={[place.latitude, place.longitude]} id={place.id} icon={context.state.icon}> 
@@ -34,6 +37,7 @@ var MapView = React.createClass({
             <div className='jobPopup'>
               <p className='jobTitle'>{place.venue}</p>
               <p className='jobDesc'>{place.description}</p>
+              <div className='jobButton'>Take This Job</div>
             </div>
           </Popup> 
         </Marker>
