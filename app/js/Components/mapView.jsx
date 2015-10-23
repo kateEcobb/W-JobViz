@@ -13,7 +13,7 @@ var MapView = React.createClass({
   getDefaultProps: function(){ 
     return { 
       center: [37.792359,-122.404686],
-      zoom: 9, 
+      zoom: 10, 
       places: [ 
         {id:'A', lat: 37.7919322, lng:-122.4081412}, 
         {id:'B', lat: 37.645251, lng:-122.41935}

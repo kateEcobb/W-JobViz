@@ -29,8 +29,8 @@ var JobStore = assign({}, EventEmitter.prototype, {
 JobStore.dispatchToken = Dispatcher.register(function(dispatch){ 
   var action = dispatch.action; 
   if(action.type === ActionTypes.JOBS_LOADED){ 
-    PhotoStore.setJobs(action.payload);
-    PhotoStore.emitChange();    
+    JobStore.setJobs(action.payload);
+    JobStore.emitChange();    
   }
 });
 
