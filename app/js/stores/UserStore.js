@@ -29,7 +29,7 @@ var UserStore = assign({}, EventEmitter.prototype, {
 
 UserStore.dispatchToken = Dispatcher.register(function (dispatch) {
   var action = dispatch.action;
-  if (action.type === ActionTypes.USER_LOGIN) {
+  if (action.type === ActionTypes.AUTHENTICATED) {
     UserStore.setUser(action.payload);
     UserStore.emitChange();
   }

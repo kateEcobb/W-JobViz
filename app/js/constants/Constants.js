@@ -1,4 +1,4 @@
-var keyMirror = require('../../../node_modules/react/lib/keyMirror');
+var keyMirror = require('keyMirror');
 
 module.exports = { 
   ActionTypes: keyMirror({ 
