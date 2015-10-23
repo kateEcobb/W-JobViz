@@ -29,7 +29,7 @@ var App = React.createClass({
   },
 
   setToken: function(){ 
-    this.setState({token: TokenStore.getToken()})
+    this.setState({token: TokenStore.getToken()});
     ViewActions.getAllJobs(this.state.token);
   },
 
@@ -53,6 +53,7 @@ var App = React.createClass({
     } else {
      return (
       <div id='container'>
+        <h1 id='appTitle'>Local Jobs</h1>
         <MapView places={this.state.places}/>
       </div>
     );
