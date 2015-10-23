@@ -3,6 +3,7 @@ var ReactDOM = require('react-dom');
 
 //Components =========
 var MapView = require('./Components/mapView.jsx');
+var NavBar = require('./Components/NavBar.jsx');
 
 //Flux ======
 var ViewActions = require('./actions/ViewActions');
@@ -52,13 +53,31 @@ var App = React.createClass({
         )
     } else {
      return (
-      <div id='container'>
-        <h1 id='appTitle'>Local Jobs</h1>
-        <MapView places={this.state.places}/>
+      <div id='appcontainer'>
+        <NavBar/>
+        <header>
+        <div className="container">
+            <div className="intro-text">
+                <div className="intro-lead-in">Spend Your Time Better.</div>
+                <div className="intro-heading">Work. Now. Locally.</div>
+                <a href="#map" className="page-scroll btn btn-xl">See Jobs</a>
+            </div>
+          </div>
+        </header>
+        <section id="services">
+        <div className="container">
+            <div className="row">
+                <div className="col-lg-12 text-center">
+                    <h2 className="section-heading">Local Jobs</h2>
+                    <MapView places={this.state.places}/>
+                </div> 
+            </div> 
+        </div> 
+        </section>
       </div>
     );
   }
   }
 });
 
-ReactDOM.render(<App/>, document.getElementById('AppView'));
+ReactDOM.render(<App/>, document.getElementById('page-top'));
