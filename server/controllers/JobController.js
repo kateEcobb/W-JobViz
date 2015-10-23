@@ -1,6 +1,13 @@
 var request = require('request');
-var apikey = require('../../.tokens.js').api_key; 
-var secret = require('../../.tokens.js').secret_key;
+
+
+if(process.env.mode === 'PRODUCTION'){ 
+  var apikey = process.env.api_key;
+  var secret = process.env.secret_key;
+} else { 
+  var apikey = require('../../.tokens.js').api_key; 
+  var secret = require('../../.tokens.js').secret_key;
+}
 
 var getAllJobs = function(req, res){ 
     var options = { 

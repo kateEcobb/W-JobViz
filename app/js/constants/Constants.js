@@ -1,4 +1,4 @@
-var keyMirror = require('keyMirror');
+var keyMirror = require('keymirror');
 
 module.exports = { 
   ActionTypes: keyMirror({ 
@@ -9,10 +9,5 @@ module.exports = {
   ActionSources: keyMirror({
     VIEW_ACTION: null
   }), 
-
-  ServerRoutes: { 
-    
-  },
-
 };
 
