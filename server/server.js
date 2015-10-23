@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes.js');
 var cors = require('cors');
 
-var port = 8080;
+var port = process.env.PORT || 8080;
 var app = express();
 
 //middleware =======
