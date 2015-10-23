@@ -9,15 +9,9 @@ var Popup = require('react-leaflet/lib/Popup');
 //Marker Styling
 var AwesomeMarkers = require('../leaflet.awesome-markers');
 
-//Tokens for Leaflet Styling
-console.log(process.env.NODE_ENV)
-if(process.env.NODE_ENV === 'production'){ 
-  var mapID = process.env.mapID;
-  var AccessToken = process.env.AccessToken;
-} else { 
-  var mapID = require('../../../.tokens.js').mapID;
-  var AccessToken = require('../../../.tokens.js').AccessToken;
-}
+//Access Tokens for Leaflet
+var mapID = 'kateecobb.cig42pnzi2awuszkvrcdrke8j';
+var AccessToken ='pk.eyJ1Ijoia2F0ZWVjb2JiIiwiYSI6ImNpZzQycHA1dzJhZjh1amx2YnM5YWJvdTYifQ.0-BucncJLGbexpv7_nr97g'; 
 
 var MapView = React.createClass({ 
   getInitialState: function(){ 

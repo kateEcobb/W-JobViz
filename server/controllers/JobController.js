@@ -1,6 +1,5 @@
 var request = require('request');
 
-console.log(process.env.NODE_ENV)
 if(process.env.NODE_ENV === 'production'){ 
   var apikey = process.env.api_key;
   var secret = process.env.secret_key;
