@@ -10,7 +10,7 @@ var Popup = require('react-leaflet/lib/Popup');
 var AwesomeMarkers = require('../leaflet.awesome-markers');
 
 //Tokens for Leaflet Styling
-if(process.env.mode === 'PRODUCTION'){ 
+if(process.env.NODE_ENV === 'PRODUCTION'){ 
   var mapID = process.env.mapID;
   var AccessToken = process.env.AccessToken;
 } else { 
